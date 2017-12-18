@@ -12,7 +12,11 @@ public class RegistrationPage extends BasePage {
                                   pass_field = $(By.name("password")),
                                   pass_confirm_field = $(By.name("password_confirmation")),
                                   submit_btn = $(By.xpath("//*[@id=\"app-layout\"]//button")),
-                                  link_to_login = $(By.xpath("//*[@id=\"app-layout\"]//a[3]"));
+                                  link_to_login = $(By.xpath("//*[@id=\"app-layout\"]//a[3]")),
+                                  name_err = $(By.xpath("//*[@id=\"app-layout\"]//div[1]/span/strong")),
+                                  email_err = $(By.xpath("//*[@id=\"app-layout\"]//div[2]/span/strong")),
+                                  pass_err = $(By.xpath("//*[@id=\"app-layout\"]//div[3]/span/strong")),
+                                  cofirmation_info_msg = $(By.xpath("//div[2]//span"));
 
     public static void Register(String user_name,
                          String user_email,

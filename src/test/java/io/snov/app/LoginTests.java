@@ -22,14 +22,14 @@ public class LoginTests extends BaseTest {
 
     @Test
     public void TestLogOut() throws Exception {
-        SuccessLoginTest();
+        LoginPage.LogIn("apanok.jbs@gmail.com", "qweasd123");
         HomePage.OpenUserDropdown();
         HomePage.ClickLogout();
         assertTrue(LoginPage.logo.isDisplayed());
     }
 
     @Test
-    public void FeilLoginEmptyFields() throws Exception {
+    public void FailLoginEmptyFields() throws Exception {
         LoginPage.LogIn("", "");
         LoginPage.err_msg_email.waitUntil(visible, 10000);
         LoginPage.err_msg_pass.waitUntil(visible, 10000);
@@ -38,24 +38,25 @@ public class LoginTests extends BaseTest {
     }
 
     @Test
-    public void FeilLoginEmptyPass() throws Exception {
+    public void FailLoginEmptyPass() throws Exception {
         LoginPage.LogIn("test@test.test", "");
         LoginPage.err_msg_pass.waitUntil(visible, 10000);
         assertTrue (LoginPage.err_msg_pass.getText().contains("The password field is required."));
     }
 
     @Test
-    public void FeilLoginEmptyEmail() throws Exception {
+    public void FailLoginEmptyEmail() throws Exception {
         LoginPage.LogIn("", "qweasd123");
         LoginPage.err_msg_email.waitUntil(visible, 10000);
         assertTrue (LoginPage.err_msg_email.getText().contains("The email field is required."));
     }
 
     @Test
-    public void FeilLoginInvalidCredentials() throws Exception {
+    public void FailLoginInvalidCredentials() throws Exception {
         LoginPage.LogIn("test@test.test", "qweasd123");
         LoginPage.err_msg_pass.waitUntil(visible, 10000);
         assertTrue (LoginPage.err_msg_pass.getText().contains("Invalid Email Address or Password"));
     }
+    
 }
 

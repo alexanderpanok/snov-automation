@@ -13,7 +13,10 @@ public class BaseTest {
 
     @Before
     public void setUp() throws Exception {
+        //for windows
         System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
+        //for linux
+        // System.setProperty("webdriver.chrome.driver", "drivers/chromedriver");
         System.setProperty("selenide.browser", "Chrome");
         open(BaseUrl);
     }
